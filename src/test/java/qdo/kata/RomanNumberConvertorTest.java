@@ -41,4 +41,15 @@ class RomanNumberConvertorTest {
 		assertThat(RomanNumberConvertor.convert("D")).asInstanceOf(InstanceOfAssertFactories.INTEGER);
 		assertThat(RomanNumberConvertor.convert("M")).asInstanceOf(InstanceOfAssertFactories.INTEGER);
 	}
+
+	@Test
+	public void shouldReturnSimplestValues(){
+		assertThat(RomanNumberConvertor.convert("I")).isEqualTo(1);
+		assertThat(RomanNumberConvertor.convert("V")).isEqualTo(5);
+		assertThat(RomanNumberConvertor.convert("X")).isEqualTo(10);
+		assertThat(RomanNumberConvertor.convert("L")).isEqualTo(50);
+		assertThat(RomanNumberConvertor.convert("C")).isEqualTo(100);
+		assertThat(RomanNumberConvertor.convert("D")).isEqualTo(500);
+		assertThat(RomanNumberConvertor.convert("M")).isEqualTo(1000);
+	}
 }
