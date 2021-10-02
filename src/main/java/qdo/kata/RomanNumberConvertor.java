@@ -7,6 +7,12 @@ import java.util.stream.IntStream;
 public class RomanNumberConvertor {
 
 	private static final Pattern INVALID_CHARACTERS = Pattern.compile("^[IVXLCDM]+$");
+	private static final Pattern INVALID_IIII = Pattern.compile("I{4}");
+	private static final Pattern INVALID_VV = Pattern.compile("V{2}");
+	private static final Pattern INVALID_XXXX = Pattern.compile("X{4}");
+	private static final Pattern INVALID_LL = Pattern.compile("L{2}");
+	private static final Pattern INVALID_CCCC = Pattern.compile("C{4}");
+	private static final Pattern INVALID_DD = Pattern.compile("D{2}");
 	public static final String SPACE = "\s";
 	public static final String EMPTY = "";
 
@@ -40,7 +46,13 @@ public class RomanNumberConvertor {
 	}
 
 	private static void isNumberValid(String romanNumber){
-		if(!INVALID_CHARACTERS.matcher(romanNumber).matches())
+		if(!INVALID_CHARACTERS.matcher(romanNumber).matches()
+			|| INVALID_IIII.matcher(romanNumber).matches()
+			|| INVALID_VV.matcher(romanNumber).matches()
+			|| INVALID_XXXX.matcher(romanNumber).matches()
+			|| INVALID_LL.matcher(romanNumber).matches()
+			|| INVALID_CCCC.matcher(romanNumber).matches()
+			|| INVALID_DD.matcher(romanNumber).matches())
 			throw new NumberFormatException("Bad character found");
 	}
 }
