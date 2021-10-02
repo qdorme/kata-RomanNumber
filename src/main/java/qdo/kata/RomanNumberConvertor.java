@@ -15,7 +15,15 @@ public class RomanNumberConvertor {
 		isNumberValid(formattedRomanNumber);
 
 		return IntStream.range(0, formattedRomanNumber.length())
-				.map(index -> RomanNumberValue.valueOf(String.valueOf(formattedRomanNumber.charAt(index))).value())
+				.map(index -> {
+					Integer value = RomanNumberValue.valueOf(String.valueOf(formattedRomanNumber.charAt(index))).value();
+					if (index < formattedRomanNumber.length() - 1 &&
+							RomanNumberValue.valueOf(String.valueOf(formattedRomanNumber.charAt(index))).compareTo(
+								RomanNumberValue.valueOf(String.valueOf(formattedRomanNumber.charAt(index + 1)))) < 0) {
+						value *= -1;
+					}
+					return value;
+				})
 				.sum();
 	}
 
