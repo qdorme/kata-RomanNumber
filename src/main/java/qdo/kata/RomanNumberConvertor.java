@@ -2,6 +2,7 @@ package qdo.kata;
 
 import java.util.Locale;
 import java.util.regex.Pattern;
+import java.util.stream.IntStream;
 
 public class RomanNumberConvertor {
 
@@ -13,7 +14,9 @@ public class RomanNumberConvertor {
 		String formattedRomanNumber = romanNumber.replaceAll(SPACE, EMPTY).toUpperCase(Locale.ENGLISH);
 		isNumberValid(formattedRomanNumber);
 
-		return RomanNumberValue.valueOf(formattedRomanNumber).value();
+		return IntStream.range(0, formattedRomanNumber.length())
+				.map(index -> RomanNumberValue.valueOf(String.valueOf(formattedRomanNumber.charAt(index))).value())
+				.sum();
 	}
 
 	private static void isNumberValid(String romanNumber){
