@@ -36,4 +36,14 @@ class RomanNumberConvertorTest {
 		assertThat(RomanNumberConvertor.convert("LXXXIX")).isEqualTo(89);
 		assertThat(RomanNumberConvertor.convert("MMMMDCCCLXXXVIII")).isEqualTo(4888);
 	}
+
+	@Test
+	public void shouldThrowsNumberFormatExceptionIfFourTimesRepeated(){
+		assertThatExceptionOfType(NumberFormatException.class).isThrownBy(() -> RomanNumberConvertor.convert("IIII"));
+		assertThatExceptionOfType(NumberFormatException.class).isThrownBy(() -> RomanNumberConvertor.convert("VV"));
+		assertThatExceptionOfType(NumberFormatException.class).isThrownBy(() -> RomanNumberConvertor.convert("XXXX"));
+		assertThatExceptionOfType(NumberFormatException.class).isThrownBy(() -> RomanNumberConvertor.convert("LL"));
+		assertThatExceptionOfType(NumberFormatException.class).isThrownBy(() -> RomanNumberConvertor.convert("CCCC"));
+		assertThatExceptionOfType(NumberFormatException.class).isThrownBy(() -> RomanNumberConvertor.convert("DD"));
+	}
 }
