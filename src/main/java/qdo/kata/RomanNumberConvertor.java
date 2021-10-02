@@ -16,7 +16,7 @@ public class RomanNumberConvertor {
 
 		return IntStream.range(0, formattedRomanNumber.length())
 				.map(index -> {
-					Integer value = RomanNumberValue.valueOf(String.valueOf(formattedRomanNumber.charAt(index))).value();
+					int value = RomanNumberValue.valueOf(String.valueOf(formattedRomanNumber.charAt(index))).value();
 					if (isNegativeNumber(formattedRomanNumber, index)) {
 						value *= -1;
 					}
