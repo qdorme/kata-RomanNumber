@@ -2,7 +2,7 @@ package qdo.kata;
 
 public class RomanNumberConvertor {
 
-	public static void convert(String romanNumber) {
+	public static int convert(String romanNumber) {
 		throw new NumberFormatException("Bad character found");
 	}
 }

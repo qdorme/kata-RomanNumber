@@ -1,7 +1,9 @@
 package qdo.kata;
 
+import org.assertj.core.api.InstanceOfAssertFactories;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 class RomanNumberConvertorTest {
@@ -27,5 +29,16 @@ class RomanNumberConvertorTest {
 		assertThatExceptionOfType(NumberFormatException.class).isThrownBy(() -> RomanNumberConvertor.convert("W"));
 		assertThatExceptionOfType(NumberFormatException.class).isThrownBy(() -> RomanNumberConvertor.convert("Y"));
 		assertThatExceptionOfType(NumberFormatException.class).isThrownBy(() -> RomanNumberConvertor.convert("Z"));
+	}
+
+	@Test
+	public void shouldNotThrowsNumberFormatException(){
+		assertThat(RomanNumberConvertor.convert("I")).asInstanceOf(InstanceOfAssertFactories.INTEGER);
+		assertThat(RomanNumberConvertor.convert("V")).asInstanceOf(InstanceOfAssertFactories.INTEGER);
+		assertThat(RomanNumberConvertor.convert("X")).asInstanceOf(InstanceOfAssertFactories.INTEGER);
+		assertThat(RomanNumberConvertor.convert("L")).asInstanceOf(InstanceOfAssertFactories.INTEGER);
+		assertThat(RomanNumberConvertor.convert("C")).asInstanceOf(InstanceOfAssertFactories.INTEGER);
+		assertThat(RomanNumberConvertor.convert("D")).asInstanceOf(InstanceOfAssertFactories.INTEGER);
+		assertThat(RomanNumberConvertor.convert("M")).asInstanceOf(InstanceOfAssertFactories.INTEGER);
 	}
 }
