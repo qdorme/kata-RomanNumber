@@ -62,4 +62,11 @@ class RomanNumberConvertorTest {
 		assertThat(RomanNumberConvertor.convert("CD")).isEqualTo(400);
 		assertThat(RomanNumberConvertor.convert("CM")).isEqualTo(900);
 	}
+
+	@Test
+	public void shouldReturnTheConvertedValue(){
+		assertThat(RomanNumberConvertor.convert("XIV")).isEqualTo(14);
+		assertThat(RomanNumberConvertor.convert("LXXXIX")).isEqualTo(89);
+		assertThat(RomanNumberConvertor.convert("MMMMDCCCLXXXVIII")).isEqualTo(4888);
+	}
 }
