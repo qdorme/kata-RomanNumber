@@ -40,4 +40,16 @@ class RomanNumberConvertorTest {
 		assertThat(RomanNumberConvertor.convert("D")).isEqualTo(500);
 		assertThat(RomanNumberConvertor.convert("M")).isEqualTo(1000);
 	}
+
+	@Test
+	public void shouldAddBasicValues(){
+		assertThat(RomanNumberConvertor.convert("II")).isEqualTo(2);
+		assertThat(RomanNumberConvertor.convert("VI")).isEqualTo(6);
+		assertThat(RomanNumberConvertor.convert("XV")).isEqualTo(15);
+		assertThat(RomanNumberConvertor.convert("LX")).isEqualTo(60);
+		assertThat(RomanNumberConvertor.convert("CL")).isEqualTo(150);
+		assertThat(RomanNumberConvertor.convert("DC")).isEqualTo(600);
+		assertThat(RomanNumberConvertor.convert("MD")).isEqualTo(1500);
+		assertThat(RomanNumberConvertor.convert("MM")).isEqualTo(2000);
+	}
 }
