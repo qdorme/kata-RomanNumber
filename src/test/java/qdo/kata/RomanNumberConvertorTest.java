@@ -52,4 +52,14 @@ class RomanNumberConvertorTest {
 		assertThat(RomanNumberConvertor.convert("MD")).isEqualTo(1500);
 		assertThat(RomanNumberConvertor.convert("MM")).isEqualTo(2000);
 	}
+
+	@Test
+	public void shouldSubstrateBasicValues(){
+		assertThat(RomanNumberConvertor.convert("IV")).isEqualTo(4);
+		assertThat(RomanNumberConvertor.convert("IX")).isEqualTo(9);
+		assertThat(RomanNumberConvertor.convert("XL")).isEqualTo(40);
+		assertThat(RomanNumberConvertor.convert("XC")).isEqualTo(90);
+		assertThat(RomanNumberConvertor.convert("CD")).isEqualTo(400);
+		assertThat(RomanNumberConvertor.convert("CM")).isEqualTo(900);
+	}
 }
