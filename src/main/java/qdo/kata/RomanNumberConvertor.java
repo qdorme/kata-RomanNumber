@@ -13,7 +13,7 @@ public class RomanNumberConvertor {
 		String formattedRomanNumber = romanNumber.replaceAll(SPACE, EMPTY).toUpperCase(Locale.ENGLISH);
 		isNumberValid(formattedRomanNumber);
 
-		return 0;
+		return RomanNumberValue.valueOf(formattedRomanNumber).value();
 	}
 
 	private static void isNumberValid(String romanNumber){
