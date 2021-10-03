@@ -46,13 +46,15 @@ public class RomanNumberConvertor {
 	}
 
 	private static void isNumberValid(String romanNumber){
-		if(!INVALID_CHARACTERS.matcher(romanNumber).matches()
-			|| INVALID_IIII.matcher(romanNumber).matches()
+		if(!INVALID_CHARACTERS.matcher(romanNumber).matches()){
+			throw new NumberFormatException("Bad character found");
+		}else if(
+			INVALID_IIII.matcher(romanNumber).matches()
 			|| INVALID_VV.matcher(romanNumber).matches()
 			|| INVALID_XXXX.matcher(romanNumber).matches()
 			|| INVALID_LL.matcher(romanNumber).matches()
 			|| INVALID_CCCC.matcher(romanNumber).matches()
 			|| INVALID_DD.matcher(romanNumber).matches())
-			throw new NumberFormatException("Bad character found");
+			throw new NumberFormatException("Character repeated more than authorized");
 	}
 }
